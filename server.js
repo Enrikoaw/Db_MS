@@ -46,7 +46,7 @@ const loginLimiter = rateLimit({
     legacyHeaders: false,
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 // Middleware Autentikasi JWT
 const authenticateJWT = (req, res, next) => {
@@ -283,7 +283,7 @@ app.get('/api/admin/stats', async (req, res, next) => {
     }
 });
 app.use((req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.use((err, req, res, next) => {
